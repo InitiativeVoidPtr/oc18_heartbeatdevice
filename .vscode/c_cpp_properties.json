@@ -1,0 +1,55 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "D:/Keil_v5/ARM/ARMCC/include",
+                "${workspaceRoot}",
+                "${workspaceRoot}/mbed-os",
+                "${workspaceRoot}/Application",
+                "${workspaceRoot}/mbed-os/targets/TARGET_STM/TARGET_STM32F7",
+                "${workspaceRoot}/mbed-os/targets/TARGET_STM/TARGET_STM32F7/TARGET_STM32F767xI",
+                "${workspaceRoot}/mbed-os/targets/TARGET_STM/TARGET_STM32F7/TARGET_STM32F767xI/device",
+                "${workspaceRoot}/mbed-os/targets/TARGET_STM/TARGET_STM32F7/TARGET_STM32F767xI/TARGET_NUCLEO_F767ZI",
+                "${workspaceRoot}/mbed-os/drivers",
+                "${workspaceRoot}/mbed-os/rtos",
+                "${workspaceRoot}/mbed-os/rtos/TARGET_CORTEX/rtx5/Include",
+                "${workspaceRoot}/mbed-os/rtos/TARGET_CORTEX",
+                "${workspaceRoot}/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Include",
+                "${workspaceRoot}/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source",
+                "${workspaceRoot}/mbed-os/features/FEATURE_LWIP/lwip-interface",
+                "${workspaceRoot}/mbed-os/features/netsocket",
+                "${workspaceRoot}/mbed-os/features",
+                "${workspaceRoot}/mbed-os/platform",
+                "${workspaceRoot}/mbed-os/cmsis/TARGET_CORTEX_M",
+                "${workspaceRoot}/mbed-os/targets/TARGET_STM/TARGET_STM32F7/device",
+                "${workspaceRoot}/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Config",
+                "${workspaceRoot}/mbed-os/targets/TARGET_STM",
+                "${workspaceRoot}/mbed-os/rtos/TARGET_CORTEX/rtx4",
+                "${workspaceRoot}/mbed-os/hal",
+                "${workspaceRoot}/mbed-os/features/FEATURE_LWIP/lwip-interface/lwip/src/include",
+                "${workspaceRoot}/mbed-os/features/FEATURE_LWIP/lwip-interface/lwip-sys",
+                "${workspaceRoot}/mbed-client",
+                "${workspaceRoot}/mbed-client/mbed-client",
+                "${workspaceRoot}/mbed-os/features/mbedtls/inc",
+                "${workspaceRoot}/mbed-client-c",
+                "${workspaceRoot}/mbed-os/features/FEATURE_COMMON_PAL/mbed-coap/mbed-coap",
+                "${workspaceRoot}/mbed-client-mbed-tls/test/mbed-client-mbed-tls/unittest/common",
+                "${workspaceRoot}/mbed-client/source/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${workspaceRoot}/build/intellisense"
+            }
+        }
+    ],
+    "version": 3
+}
