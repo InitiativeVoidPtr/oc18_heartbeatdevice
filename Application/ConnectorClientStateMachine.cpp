@@ -133,7 +133,7 @@ void ConnectorClientStateMachine::Update()
   std::stringstream stream;
   for(uint32_t i = 0; i < values.size(); i+=2)
   {
-    stream << std::fixed << std::setprecision(4) << values[i]   << ";";
+    stream << std::fixed << std::setprecision(4) << values[i]   << ",";
     stream << std::fixed << std::setprecision(0) << values[i+1] << ";";
   }
  
