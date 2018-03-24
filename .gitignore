@@ -32,3 +32,6 @@
 *.app
 BUILD/
 security.h
+DebugConfig/AdcToEthernet_STM32F767ZITx_1.0.0.dbgconf
+AdcToEthernet.uvguix.u4011269
+AdcToEthernet.uvoptx
