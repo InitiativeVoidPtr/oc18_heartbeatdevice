@@ -1,0 +1,38 @@
+#--- Inputs ----#
+CPPUTEST_HOME = /usr
+CPPUTEST_USE_EXTENSIONS = Y
+CPPUTEST_USE_VPATH = Y
+CPPUTEST_USE_GCOV = Y
+CPP_PLATFORM = gcc
+INCLUDE_DIRS =\
+  .\
+  ../common\
+  ../stub\
+  ../../../../source/include\
+  ../../../../source\
+  ../../../../\
+  ../../../../test_modules/\
+  ../../../../test_modules/mbed-client-pal/Source/PAL-Impl/Services-API/\
+  ../../../../test_modules/mbed-client-pal/Source/Port/Platform-API\
+  ../../../../test_modules/mbed-client-pal/Source/Port/Reference-Impl/mbedOS/CFStore\
+  ../../../../test_modules/mbed-client/mbed-client\
+  ../../../../test_modules/mbed-client\
+  ../../../../test_modules/mbed-client/source\
+  ../../../../test_modules/mbed-client/source/include\
+  ../../../../test_modules/mbed-client-c\
+  ../../../../test_modules/mbed-client-c/source/libNsdl\
+  ../../../../test_modules/mbed-client-c/source/libNsdl/src/include\
+  ../../../../test_modules/mbed-trace\
+  ../../../../test_modules/mbed-os/features/FEATURE_COMMON_PAL/sal-stack-nanostack-eventloop/\
+  ../../../../test_modules/mbed-os/features/FEATURE_COMMON_PAL/sal-stack-nanostack-eventloop/nanostack-event-loop\
+  ../../../../test_modules/mbed-os/features/FEATURE_COMMON_PAL/nanostack-libservice/\
+  ../../../../test_modules/mbed-os/features/FEATURE_COMMON_PAL/nanostack-libservice/mbed-client-libservice/\
+  ../../../../test_modules/mbed-os/features/storage/FEATURE_STORAGE/cfstore/configuration-store/\
+  ../../../../test_modules/mbed-os/features/FEATURE_COMMON_PAL/nanostack-hal-mbed-cmsis-rtos\
+  ../../../../test_modules/mbed-os/hal/storage_abstraction\
+  ../../../../test_modules/mbed-coap/\
+  ../../../../test_modules/mbed-coap/mbed-coap/\
+  /usr/include\
+  $(CPPUTEST_HOME)/include\
+
+CPPUTESTFLAGS = -D__thumb2__ -w
