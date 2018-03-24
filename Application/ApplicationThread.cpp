@@ -36,9 +36,9 @@ void ApplicationThread::Run()
     {
       DebugClass::Print("Start sampling");
       
-      for(uint32_t i = 0; i <= 100; i++)
+      for(uint32_t i = 0; i <= 50; i++)
       {
-        const uint32_t waitTime = 10;
+        const uint32_t waitTime = 20;
 
         values.push_back(voltage.GetRawValue(0));
         
