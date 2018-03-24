@@ -31,15 +31,8 @@ float VoltageReader::GetRawValue(uint32_t index)
 
 float VoltageReader::GetRawValueWithTimeStamp(uint32_t index, uint32_t& timeStamp)
 {
-  float returnValue = 0;
-  
-  if(index < ain.size())
-  {
-    returnValue = ain[index];
-    timeStamp = SystemTime::GetActualTimeMs();
-  }
-  
-  return returnValue;
+  timeStamp = SystemTime::GetActualTimeMs();
+  return GetRawValue(index);
 }
 
 
