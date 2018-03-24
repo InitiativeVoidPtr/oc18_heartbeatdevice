@@ -10,6 +10,8 @@
 #include "Thread.h"
 #include "nsapi_types.h"
 #include "ConnectorClient.h"
+#include <iomanip>
+#include <sstream>
 
 
 // This is address to mbed Device Connector
@@ -33,6 +35,8 @@ void ConnectorClientStateMachine::Start()
 void ConnectorClientStateMachine::Run(std::vector<float> values)
 {
 	this->values = values;
+	DebugClass::Print("Value for update ", values[0]);
+	
   switch(state)
   {
     case IDLE:
@@ -91,9 +95,7 @@ void ConnectorClientStateMachine::Setup()
     connector->mbedClient.create_device_object();
 
   objectList.push_back(deviceObject);
-  objectList.push_back(valueAdc1.GetObject());
-  objectList.push_back(valueAdc2.GetObject());
-  objectList.push_back(valueAdc3.GetObject());
+  objectList.push_back(valueAdc.GetObject());
 
   state = REGISTER;
 }
@@ -118,10 +120,21 @@ void ConnectorClientStateMachine::Register()
 void ConnectorClientStateMachine::Update()
 {
   DebugClass::Print("Start Updateing");
+  
+  std::stringstream stream;
+  stream << std::fixed << std::setprecision(2) << values[0];
+  string s = stream.str();
+  
+  const uint32_t sizeValue = 400;
+	
+  char sArray[sizeValue];
+  strcpy(sArray, s.c_str());
+
+  valueAdc.setValue((uint8_t*)sArray, sizeValue);
   if(connector->mbedClient.register_successful())
   {
-  connector->mbedClient.test_update_register();
-}
+    connector->mbedClient.test_update_register();
+  }
   else
   {
     DebugClass::Print("Registration in progress");

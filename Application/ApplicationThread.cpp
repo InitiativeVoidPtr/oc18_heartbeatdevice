@@ -27,16 +27,18 @@ void ApplicationThread::Run()
 
   float voltageArray[voltage.GetVoltageCount()];
   std::vector<float> values;
-
-  for(;;)
+	uint32_t debugCounter = 0;
+  
+	for(;;)
   {
     values.clear();
-    
+
     for(uint32_t i = 0; i < voltage.GetVoltageCount(); i++)
     {
       voltageArray[i] = voltage.GetRawValue(i);
-      values.push_back(voltageArray[i]);
     }
+		
+		values.push_back(debugCounter++);
 
     DebugClass::Print("Voltage 0: ", voltageArray[0]);
     DebugClass::Print("Voltage 1: ", voltageArray[1]);

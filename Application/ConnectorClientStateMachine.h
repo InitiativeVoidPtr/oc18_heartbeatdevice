@@ -40,10 +40,7 @@ private:
 
   ConnectorClient* connector;
   M2MObjectList objectList;
-  SimpleValue valueAdc1;
-  SimpleValue valueAdc2;
-  SimpleValue valueAdc3;
-
+  SimpleValue valueAdc;
 
   void Connecting(void);
   void Setup(void);

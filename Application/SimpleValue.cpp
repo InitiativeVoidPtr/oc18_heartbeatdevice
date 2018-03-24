@@ -18,12 +18,14 @@ SimpleValue::SimpleValue()
     "AnalogValues", M2MResourceInstance::STRING, true);
 
   valueResource->set_operation(M2MBase::GET_ALLOWED);
-  valueResource->set_value((uint8_t*)"0", 1);
+  valueResource->set_value((uint8_t*)"0.5", 3);
 }
 
-void SimpleValue::setValue(uint8_t* value, uint8_t size)
+void SimpleValue::setValue(uint8_t* value, uint32_t size)
 {
-  valueResource->set_value(value, size);
+  M2MObjectInstance* inst = valueObject->object_instance();
+  M2MResource* res = inst->resource("5527");
+  res->set_value(value, size);
 }
 
 M2MObject* SimpleValue::GetObject()
