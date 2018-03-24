@@ -7,6 +7,7 @@
 
 #include "SystemTime.h"
 #include "rtx_os.h"
+#include "pal_rtos.h"
 
 
 SystemTime::SystemTime()
@@ -20,7 +21,7 @@ uint32_t SystemTime::GetActualTimeUs(void)
 }
 
 
-uint32_t SystemTime::GetActualTimeMs(void)
+uint64_t SystemTime::GetActualTimeMs(void)
 {
-  return ( (uint64_t)osKernelGetSysTimerCount()*1000U ) / osKernelGetSysTimerFreq() ;
+  return pal_osKernelSysMilliSecTick(pal_osKernelSysTick64()) ;
 }

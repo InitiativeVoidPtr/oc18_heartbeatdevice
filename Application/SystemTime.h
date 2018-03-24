@@ -15,7 +15,7 @@ class SystemTime
 public:
   SystemTime();
   static uint32_t GetActualTimeUs(void);
-  static uint32_t GetActualTimeMs(void);
+  static uint64_t GetActualTimeMs(void);
   
 private:
 
