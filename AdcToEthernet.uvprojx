@@ -10,8 +10,7 @@
       <TargetName>AdcToEthernet</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F767ZITx</Device>
@@ -434,6 +433,11 @@
               <FileName>SimpleValue.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Application\SimpleValue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemTime.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\SystemTime.cpp</FilePath>
             </File>
           </Files>
         </Group>
