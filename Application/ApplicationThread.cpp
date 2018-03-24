@@ -26,16 +26,18 @@ void ApplicationThread::Run()
   client.Start();
 
   float voltageArray[voltage.GetVoltageCount()];
+  uint32_t timeStampArray[voltage.GetVoltageCount()];
   std::vector<float> values;
 	uint32_t debugCounter = 0;
   
 	for(;;)
   {
     values.clear();
+      
 
     for(uint32_t i = 0; i < voltage.GetVoltageCount(); i++)
     {
-      voltageArray[i] = voltage.GetRawValue(i);
+      voltageArray[i] = voltage.GetRawValueWithTimeStamp(i,timeStampArray[i]);
     }
 		
 		values.push_back(debugCounter++);

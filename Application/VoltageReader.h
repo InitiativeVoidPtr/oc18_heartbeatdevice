@@ -17,6 +17,7 @@ class VoltageReader
 public:
   VoltageReader();
   float GetRawValue(uint32_t index);
+  float GetRawValueWithTimeStamp(uint32_t index, uint32_t &timeStamp);
   uint32_t GetVoltageCount(void);
   
 private:

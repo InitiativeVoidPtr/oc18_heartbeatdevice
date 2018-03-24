@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 #include "VoltageReader.h"
+#include "SystemTime.h"
 
 
 VoltageReader::VoltageReader()
@@ -27,6 +28,20 @@ float VoltageReader::GetRawValue(uint32_t index)
   
   return returnValue;
 }
+
+float VoltageReader::GetRawValueWithTimeStamp(uint32_t index, uint32_t& timeStamp)
+{
+  float returnValue = 0;
+  
+  if(index < ain.size())
+  {
+    returnValue = ain[index];
+    timeStamp = SystemTime::GetActualTimeMs();
+  }
+  
+  return returnValue;
+}
+
 
 uint32_t VoltageReader::GetVoltageCount()
 {
