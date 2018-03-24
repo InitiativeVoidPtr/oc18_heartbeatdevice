@@ -44,14 +44,14 @@
 #define MBED_LFS_BLOCK_SIZE                               512                          // set by library:littlefs
 #define MBED_CONF_PPP_CELL_IFACE_AT_PARSER_BUFFER_SIZE    256                          // set by library:ppp-cell-iface
 #define MBED_CONF_PLATFORM_STDIO_FLUSH_AT_EXIT            1                            // set by library:platform
-#define MBED_CONF_PLATFORM_STDIO_BAUD_RATE                9600                         // set by library:platform
+#define MBED_CONF_PLATFORM_STDIO_BAUD_RATE                115200                         // set by library:platform
 #define CLOCK_SOURCE                                      USE_PLL_HSE_EXTC|USE_PLL_HSI // set by target:NUCLEO_F767ZI
 #define NSAPI_PPP_AVAILABLE                               0                            // set by library:lwip
 #define MBED_CONF_LWIP_IPV6_ENABLED                       0                            // set by library:lwip
 #define MBED_CONF_EVENTS_SHARED_HIGHPRIO_STACKSIZE        1024                         // set by library:events
 #define MBED_CONF_LWIP_TCP_SERVER_MAX                     4                            // set by library:lwip
 #define MBED_LFS_READ_SIZE                                64                           // set by library:littlefs
-#define MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE       9600                         // set by library:platform
+#define MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE       115200                         // set by library:platform
 #define MBED_CONF_LWIP_TCP_SOCKET_MAX                     4                            // set by library:lwip
 #define MBED_CONF_RTOS_PRESENT                            1                            // set by library:rtos
 #define MBED_CONF_EVENTS_SHARED_DISPATCH_FROM_APPLICATION 0                            // set by library:events

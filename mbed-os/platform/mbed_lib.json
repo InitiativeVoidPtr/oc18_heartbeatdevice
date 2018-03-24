@@ -8,7 +8,7 @@
 
         "stdio-baud-rate": {
             "help": "Baud rate for stdio",
-            "value": 9600
+            "value": 115200
         },
 
         "stdio-flush-at-exit": {
@@ -18,7 +18,7 @@
 
         "default-serial-baud-rate": {
             "help": "Default baud rate for a Serial or RawSerial instance (if not specified in the constructor)",
-            "value": 9600
+            "value": 115200
         },
 
         "force-non-copyable-error": {
