@@ -10,13 +10,14 @@
 #include "Simpleclient.h"
 #include "EthernetInterface.h"
 #include "ConnectorClientStateMachine.h"
+#include <vector>
 
 class ConnectorClient
 {
 public:
   ConnectorClient(void);
   void Start(void);
-  void Run(void);
+  void Run(std::vector<float> value);
 
 private:
   MbedClient mbedClient;

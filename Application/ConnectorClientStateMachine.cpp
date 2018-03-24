@@ -30,8 +30,9 @@ void ConnectorClientStateMachine::Start()
 }
 
 
-void ConnectorClientStateMachine::Run()
+void ConnectorClientStateMachine::Run(std::vector<float> values)
 {
+	this->values = values;
   switch(state)
   {
     case IDLE:
@@ -90,8 +91,9 @@ void ConnectorClientStateMachine::Setup()
     connector->mbedClient.create_device_object();
 
   objectList.push_back(deviceObject);
-  objectList.push_back(value.GetObject());
-  // TODO other objects
+  objectList.push_back(valueAdc1.GetObject());
+  objectList.push_back(valueAdc2.GetObject());
+  objectList.push_back(valueAdc3.GetObject());
 
   state = REGISTER;
 }

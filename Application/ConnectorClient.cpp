@@ -7,7 +7,6 @@
 #include "ConnectorClient.h"
 #include "mbedtls/entropy_poll.h"
 
-
 struct MbedClientDevice device = {
   "Initiative-void*",         // Manufacturer
   "Heartbeat",                // Type
@@ -31,7 +30,7 @@ void ConnectorClient::Start()
   stateMachine.Start();
 }
 
-void ConnectorClient::Run()
+void ConnectorClient::Run(std::vector<float> value)
 {
-  stateMachine.Run();
+  stateMachine.Run(value);
 }

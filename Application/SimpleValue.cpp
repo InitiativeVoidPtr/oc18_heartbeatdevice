@@ -10,21 +10,20 @@
 #include "SimpleValue.h"
 
 SimpleValue::SimpleValue()
-  :value(0.0)
 {
-  valueObject = M2MInterfaceFactory::create_object("3202");
+  valueObject = M2MInterfaceFactory::create_object("3314");
   M2MObjectInstance* valueInstance = valueObject->create_object_instance();
 
-  M2MResource* valueResource = valueInstance->create_dynamic_resource("5600",
-    "AnalogIn", M2MResourceInstance::FLOAT, true);
+  valueResource = valueInstance->create_dynamic_resource("5527",
+    "AnalogValues", M2MResourceInstance::STRING, true);
 
   valueResource->set_operation(M2MBase::GET_ALLOWED);
   valueResource->set_value((uint8_t*)"0", 1);
 }
 
-void SimpleValue::setValue(float value)
+void SimpleValue::setValue(uint8_t* value, uint8_t size)
 {
-  //TODO
+  valueResource->set_value(value, size);
 }
 
 M2MObject* SimpleValue::GetObject()

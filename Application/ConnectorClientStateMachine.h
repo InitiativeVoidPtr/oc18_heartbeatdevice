@@ -11,6 +11,7 @@
 #include "m2mnsdlinterface.h"
 #include "SimpleValue.h"
 #include "mbed-client/m2mdevice.h"
+#include <vector>
 
 class ConnectorClient;
 
@@ -18,11 +19,13 @@ class ConnectorClientStateMachine
 {
 public:
   void Start(void);
-  void Run(void);
+  void Run(std::vector<float> values);
 
   ConnectorClientStateMachine(ConnectorClient* connector);
 
 private:
+	std::vector<float> values;
+
   enum State
   {
     IDLE,
@@ -37,7 +40,9 @@ private:
 
   ConnectorClient* connector;
   M2MObjectList objectList;
-  SimpleValue value;
+  SimpleValue valueAdc1;
+  SimpleValue valueAdc2;
+  SimpleValue valueAdc3;
 
 
   void Connecting(void);

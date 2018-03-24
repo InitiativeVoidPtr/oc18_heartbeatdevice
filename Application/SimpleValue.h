@@ -17,11 +17,11 @@ public:
 
   M2MObject* GetObject(void);
 
-  void setValue(float  value);
+  void setValue(uint8_t* value, uint8_t size);
 
 private:
   M2MObject* valueObject;
-  float value;
+	M2MResource* valueResource;
 
 };
 
