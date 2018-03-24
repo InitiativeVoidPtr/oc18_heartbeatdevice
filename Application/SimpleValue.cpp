@@ -11,14 +11,14 @@
 
 SimpleValue::SimpleValue()
 {
-  valueObject = M2MInterfaceFactory::create_object("3314");
+  valueObject = M2MInterfaceFactory::create_object("3341");
   M2MObjectInstance* valueInstance = valueObject->create_object_instance();
 
   valueResource = valueInstance->create_dynamic_resource("5527",
-    "AnalogValues", M2MResourceInstance::STRING, true);
+    "AnalogValues", M2MResourceInstance::STRING, true, true);
 
   valueResource->set_operation(M2MBase::GET_ALLOWED);
-  valueResource->set_value((uint8_t*)"0.5", 3);
+  valueResource->set_value((uint8_t*)"0", 1);
 }
 
 void SimpleValue::setValue(uint8_t* value, uint32_t size)

@@ -34,3 +34,9 @@ void ConnectorClient::Run(std::vector<float> value)
 {
   stateMachine.Run(value);
 }
+
+
+bool ConnectorClient::IsRunning()
+{
+  return stateMachine.IsRunning();
+}

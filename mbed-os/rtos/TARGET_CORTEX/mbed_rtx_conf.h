@@ -29,7 +29,7 @@
 
 /** The thread's stack size can be configured by the application, if not explicitly specified it'll default to 4K */
 #ifndef MBED_CONF_APP_THREAD_STACK_SIZE
-#define MBED_CONF_APP_THREAD_STACK_SIZE 4096
+#define MBED_CONF_APP_THREAD_STACK_SIZE 8192
 #endif
 
 #define OS_STACK_SIZE               MBED_CONF_APP_THREAD_STACK_SIZE

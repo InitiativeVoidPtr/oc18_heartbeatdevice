@@ -12,6 +12,7 @@
 #include "ConnectorClient.h"
 #include <iomanip>
 #include <sstream>
+#include <iostream>
 
 
 // This is address to mbed Device Connector
@@ -25,6 +26,15 @@ ConnectorClientStateMachine::ConnectorClientStateMachine(ConnectorClient* connec
   
 }
 
+bool ConnectorClientStateMachine::IsRunning()
+{
+  if(UPDATE == state)
+  {
+    return true;
+  }
+  return false;
+}
+
 
 void ConnectorClientStateMachine::Start()
 {
@@ -35,7 +45,6 @@ void ConnectorClientStateMachine::Start()
 void ConnectorClientStateMachine::Run(std::vector<float> values)
 {
 	this->values = values;
-	DebugClass::Print("Value for update ", values[0]);
 	
   switch(state)
   {
@@ -122,15 +131,20 @@ void ConnectorClientStateMachine::Update()
   DebugClass::Print("Start Updateing");
   
   std::stringstream stream;
-  stream << std::fixed << std::setprecision(2) << values[0];
+  for(uint32_t i = 0; i < values.size(); i+=2)
+  {
+    stream << std::fixed << std::setprecision(4) << values[i]   << ";";
+    stream << std::fixed << std::setprecision(0) << values[i+1] << ";";
+  }
+ 
   string s = stream.str();
+	std::cout << "Data for sending: " << s << endl;
   
-  const uint32_t sizeValue = 400;
-	
-  char sArray[sizeValue];
+  char sArray[s.size()];
   strcpy(sArray, s.c_str());
 
-  valueAdc.setValue((uint8_t*)sArray, sizeValue);
+  valueAdc.setValue((uint8_t*)sArray, s.size());
+
   if(connector->mbedClient.register_successful())
   {
     connector->mbedClient.test_update_register();
@@ -140,7 +154,7 @@ void ConnectorClientStateMachine::Update()
     DebugClass::Print("Registration in progress");
   }
 
-  rtos::Thread::wait(10000);
+  rtos::Thread::wait(100);
 }
 
 

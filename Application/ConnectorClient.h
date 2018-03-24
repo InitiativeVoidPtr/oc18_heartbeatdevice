@@ -18,6 +18,7 @@ public:
   ConnectorClient(void);
   void Start(void);
   void Run(std::vector<float> value);
+  bool IsRunning(void);
 
 private:
   MbedClient mbedClient;

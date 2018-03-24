@@ -20,6 +20,7 @@ class ConnectorClientStateMachine
 public:
   void Start(void);
   void Run(std::vector<float> values);
+  bool IsRunning(void);
 
   ConnectorClientStateMachine(ConnectorClient* connector);
 

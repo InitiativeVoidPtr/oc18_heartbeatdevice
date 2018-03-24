@@ -25,27 +25,31 @@ void ApplicationThread::Run()
 
   client.Start();
 
-  float voltageArray[voltage.GetVoltageCount()];
   std::vector<float> values;
-	uint32_t debugCounter = 0;
+  float timestamp = 0.0;
   
 	for(;;)
   {
     values.clear();
 
-    for(uint32_t i = 0; i < voltage.GetVoltageCount(); i++)
+    if(client.IsRunning())
     {
-      voltageArray[i] = voltage.GetRawValue(i);
-    }
-		
-		values.push_back(debugCounter++);
+      DebugClass::Print("Start sampling");
+      
+      for(uint32_t i = 0; i <= 100; i++)
+      {
+        const uint32_t waitTime = 10;
 
-    DebugClass::Print("Voltage 0: ", voltageArray[0]);
-    DebugClass::Print("Voltage 1: ", voltageArray[1]);
-    DebugClass::Print("Voltage 2: ", voltageArray[2]);
-    DebugClass::Print("Voltage 3: ", voltageArray[3]);
+        values.push_back(voltage.GetRawValue(0));
+        
+        rtos::Thread::wait(waitTime);
+        timestamp += (float)waitTime;
+        values.push_back(timestamp);
+      }
+      
+      DebugClass::Print("Sampling finished");
+    }
    
     client.Run(values);
-    rtos::Thread::wait(100);
   }
 }
