@@ -17,7 +17,7 @@ public:
 
   M2MObject* GetObject(void);
 
-  void setValue(uint8_t* value, uint8_t size);
+  void setValue(uint8_t* value, uint32_t size);
 
 private:
   M2MObject* valueObject;
