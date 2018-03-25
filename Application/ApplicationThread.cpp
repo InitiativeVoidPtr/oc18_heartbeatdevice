@@ -10,6 +10,7 @@
 #include "VoltageReader.h"
 #include "Thread.h"
 #include "ConnectorClient.h"
+#include <iostream>
 
 void ApplicationThread::Start()
 {
@@ -28,28 +29,50 @@ void ApplicationThread::Run()
   std::vector<float> values;
   float timestamp = 0.0;
   
-	for(;;)
+   
+  for(;;)
   {
     values.clear();
 
     if(client.IsRunning())
-    {
-      DebugClass::Print("Start sampling");
-      
+    {      
       for(uint32_t i = 0; i <= 50; i++)
       {
-        const uint32_t waitTime = 20;
-
-        values.push_back(voltage.GetRawValue(0));
+        const uint32_t waitTime = 10;
+        float data;
+        data = voltage.GetRawValueWithTimeStamp(0,timestamp);
+        values.push_back(data);
+//        std::cout << timestamp << ";" << data << std::endl ;
         
         rtos::Thread::wait(waitTime);
-        timestamp += (float)waitTime;
         values.push_back(timestamp);
       }
-      
-      DebugClass::Print("Sampling finished");
     }
-   
     client.Run(values);
   }
+}
+
+
+// Reset in case of an unexpected behavior
+void mbed_die(void) {
+  NVIC_SystemReset();
+}
+
+void HardFault_Handler()
+{
+  NVIC_SystemReset();
+}
+
+void MemManage_Handler()
+{
+  NVIC_SystemReset();
+}
+
+void BusFault_Handler()
+{
+  NVIC_SystemReset();
+}
+
+void UsageFault_Handler(){
+  NVIC_SystemReset();
 }

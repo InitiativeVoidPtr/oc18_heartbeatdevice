@@ -29,12 +29,18 @@ float VoltageReader::GetRawValue(uint32_t index)
   return returnValue;
 }
 
-float VoltageReader::GetRawValueWithTimeStamp(uint32_t index, uint32_t& timeStamp)
+float VoltageReader::GetRawValueWithTimeStamp(uint32_t index, uint64_t& timeStamp)
 {
   timeStamp = SystemTime::GetActualTimeMs();
   return GetRawValue(index);
 }
 
+
+float VoltageReader::GetRawValueWithTimeStamp(uint32_t index, float &timeStamp)
+{
+  timeStamp = SystemTime::GetActualTimeMs();
+  return GetRawValue(index);
+}
 
 uint32_t VoltageReader::GetVoltageCount()
 {

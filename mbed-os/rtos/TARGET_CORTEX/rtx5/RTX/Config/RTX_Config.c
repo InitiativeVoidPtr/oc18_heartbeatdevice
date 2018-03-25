@@ -27,6 +27,8 @@
  
 #include "cmsis_compiler.h"
 #include "rtx_os.h"
+#include "stm32f7xx.h"                  // Device header
+
  
 // OS Idle Thread
 __WEAK __NO_RETURN void osRtxIdleThread (void *argument) {
@@ -58,6 +60,9 @@ __WEAK uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
     default:
       break;
   }
+  
+  NVIC_SystemReset();
+  
   for (;;) {}
 //return 0U;
 }

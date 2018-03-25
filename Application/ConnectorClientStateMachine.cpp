@@ -133,12 +133,11 @@ void ConnectorClientStateMachine::Update()
   std::stringstream stream;
   for(uint32_t i = 0; i < values.size(); i+=2)
   {
-    stream << std::fixed << std::setprecision(4) << values[i]   << ",";
+    stream << std::fixed << std::setprecision(0) << values[i]*10000 << ",";
     stream << std::fixed << std::setprecision(0) << values[i+1] << ";";
   }
  
   string s = stream.str();
-	std::cout << "Data for sending: " << s << endl;
   
   char sArray[s.size()];
   strcpy(sArray, s.c_str());
@@ -153,8 +152,6 @@ void ConnectorClientStateMachine::Update()
   {
     DebugClass::Print("Registration in progress");
   }
-
-  rtos::Thread::wait(100);
 }
 
 
@@ -172,5 +169,5 @@ void ConnectorClientStateMachine::Detach()
 
 void ConnectorClientStateMachine::Error()
 {
-  rtos::Thread::wait(5000);
+  //rtos::Thread::wait(5000);
 }
